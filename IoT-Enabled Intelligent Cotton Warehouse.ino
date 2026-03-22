@@ -1,5 +1,5 @@
 /************************************************************
- * Project: IoT-Enabled Intelligent Cotton Warehouse
+ * ESP-node MCU CODE 
  * Description:
  * Smart Godown system for cotton storage using ESP8266.
  * Features include:
