@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF4500,30:FF8C00,60:FFA500,100:FF6347&height=220&section=header&text=IoT%20Intelligent%20Godown&fontSize=42&fontColor=ffffff&fontAlignY=33&desc=Automation%20%26%20Safety%20System%20%7C%20ESP8266%20%2B%20Blynk%20IoT&descAlignY=53&descColor=ffe0b2&animation=fadeIn" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF4500,30:FF8C00,60:FFA500,100:FF6347&height=220&section=header&text=IoT%20Intelligent%20Godown&fontSize=42&fontColor=ffffff&fontAlignY=33&desc=Automation%20and%20Safety%20System%20%7C%20ESP8266%20%2B%20Blynk%20IoT&descAlignY=53&descColor=ffe0b2" />
 
 <br>
 
@@ -11,22 +11,17 @@
 <img src="https://img.shields.io/badge/Sensors-IR%20%7C%20Flame%20%7C%20Water-EF5350?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Status-Active-00E676?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Use-Academic%20%7C%20Open%20Source-AB47BC?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Network-Wi--Fi%20%7C%20TCP-1565C0?style=for-the-badge&logo=wifi&logoColor=white" />
+<img src="https://img.shields.io/badge/Network-Wi--Fi%20%7C%20TCP-1565C0?style=for-the-badge&logoColor=white" />
 
 <br><br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF8C00&center=true&vCenter=true&width=700&lines=Smart+Cotton+Warehouse+Monitoring+System;Real-Time+Fire+%26+Moisture+Detection;Automated+Lighting+%7C+Remote+Control;Powered+by+ESP8266+%2B+Blynk+IoT" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF8C00&center=true&vCenter=true&width=700&lines=Smart+Cotton+Warehouse+Monitoring+System;Real-Time+Fire+and+Moisture+Detection;Automated+Lighting+%7C+Remote+Control;Powered+by+ESP8266+%2B+Blynk+IoT" alt="Typing SVG" />
 
 <br><br>
 
 > ### An IoT-enabled intelligent warehouse monitoring and control system for cotton storage godowns — integrating real-time environmental sensing, automated lighting, fire detection, and moisture monitoring via the Blynk mobile application.
 
 <br>
-
-![GitHub repo size](https://img.shields.io/github/repo-size/YourUsername/YourRepoName?style=flat-square&color=FF8C00)
-![GitHub last commit](https://img.shields.io/github/last-commit/YourUsername/YourRepoName?style=flat-square&color=FF6F00)
-![GitHub stars](https://img.shields.io/github/stars/YourUsername/YourRepoName?style=flat-square&color=FFD600)
-![GitHub forks](https://img.shields.io/github/forks/YourUsername/YourRepoName?style=flat-square&color=00E676)
 
 </div>
 
@@ -99,36 +94,35 @@ Network Protocol       : Wi-Fi / TCP
 
 ## System Architecture
 ```
-╔══════════════════════════════════════════════════════════════════════╗
-║                         SENSOR LAYER                                ║
-╠══════════════╦═══════════════════════╦═══════════════════════════════╣
-║  IR Sensor 1 ║     Flame Sensor      ║       Water Sensor            ║
-║  IR Sensor 2 ║     (Digital  D0)     ║       (Analog   A0)           ║
-║  IR Sensor 3 ║                       ║                               ║
-║ D5 / D6 / D7 ║                       ║                               ║
-╚══════╤═══════╩═══════════╤═══════════╩═══════════════╤═══════════════╝
-       │                   │                           │
-       └───────────────────┴───────────────────────────┘
-                                   │
-                    ╔══════════════╩══════════════╗
-                    ║       ESP8266 NodeMCU        ║
-                    ║                              ║
-                    ║   Read Sensors  |  Wi-Fi     ║
-                    ║   Drive LEDs   |  Blynk API  ║
-                    ║   Safety Logic |  Alerts     ║
-                    ╚══════════════╦══════════════╝
-                                   │
-                              Wi-Fi / TCP
-                                   │
-                    ╔══════════════╩══════════════╗
-                    ║         Blynk Cloud          ║
-                    ╚══════════════╦══════════════╝
-                                   │
-                    ╔══════════════╩══════════════╗
-                    ║      Mobile Application      ║
-                    ║   Monitor  |  Control        ║
-                    ║   Alerts   |  Dashboard      ║
-                    ╚══════════════════════════════╝
++=======================+     +===================+     +===================+
+|      IR SENSORS       |     |   FLAME SENSOR    |     |   WATER SENSOR    |
+|  IR Sensor 1 -- D5    |     |   Digital  D0     |     |   Analog   A0     |
+|  IR Sensor 2 -- D6    |     +==========+========+     +=========+=========+
+|  IR Sensor 3 -- D7    |                |                         |
++==========+============+                |                         |
+           |                            |                         |
+           +----------------------------+-------------------------+
+                                        |
+                         +=============+=============+
+                         |       ESP8266 NodeMCU     |
+                         |                           |
+                         |   Read Sensors            |
+                         |   Drive LEDs              |
+                         |   Connect Wi-Fi           |
+                         |   Push to Blynk Cloud     |
+                         +=============+=============+
+                                       |
+                                  Wi-Fi / TCP
+                                       |
+                         +=============+=============+
+                         |        Blynk Cloud        |
+                         +=============+=============+
+                                       |
+                         +=============+=============+
+                         |     Mobile Application    |
+                         |   Monitor  --  Control    |
+                         |   Alerts   --  Dashboard  |
+                         +===========================+
 ```
 
 **Flow Summary:**
@@ -225,13 +219,13 @@ Network Protocol       : Wi-Fi / TCP
 
 <div align="center">
 
-| Trigger | Action | Result |
+| Trigger | Action | Type |
 |:---|:---|:---:|
-| Motion detected by IR sensor | Corresponding room LED switches ON | ![Auto](https://img.shields.io/badge/-Automated-FF8C00?style=flat-square) |
+| Motion detected by IR sensor | Corresponding room LED switches ON automatically | ![Auto](https://img.shields.io/badge/-Automated-FF8C00?style=flat-square) |
 | No occupancy detected | LED extinguished — energy conserved | ![Auto](https://img.shields.io/badge/-Automated-FF8C00?style=flat-square) |
-| App command received via Blynk | Manual light toggle via virtual pin | ![Manual](https://img.shields.io/badge/-Manual-1565C0?style=flat-square) |
+| App command received via Blynk | Manual light toggle override via virtual pin | ![Manual](https://img.shields.io/badge/-Manual-1565C0?style=flat-square) |
 | Flame sensor threshold crossed | V4 updated — emergency push notification dispatched | ![Alert](https://img.shields.io/badge/-Alert-EF5350?style=flat-square) |
-| Water sensor threshold exceeded | V5 updated — moisture alert pushed to mobile | ![Alert](https://img.shields.io/badge/-Alert-EF5350?style=flat-square) |
+| Water sensor threshold exceeded | V5 updated — moisture alert pushed to mobile device | ![Alert](https://img.shields.io/badge/-Alert-EF5350?style=flat-square) |
 | System polling cycle | 300 ms — all sensors read, all outputs refreshed | ![System](https://img.shields.io/badge/-System-00E676?style=flat-square) |
 
 </div>
@@ -248,8 +242,8 @@ Network Protocol       : Wi-Fi / TCP
 | **Energy Efficiency** | Occupancy-based lighting reduces unnecessary power consumption across all rooms |
 | **Remote Supervision** | Full monitoring and control from any location via the Blynk mobile application |
 | **Scalable Architecture** | Easily extended to accommodate more rooms, sensors, or notification channels |
-| **Cost-Effective** | Built on widely available, low-cost hardware with open-source software stack |
-| **Instant Alerts** | Push notifications ensure safety events reach responsible personnel within milliseconds |
+| **Cost-Effective** | Built on widely available low-cost hardware with an open-source software stack |
+| **Instant Alerts** | Push notifications ensure safety events reach responsible personnel immediately |
 
 </div>
 
@@ -298,6 +292,6 @@ Network Protocol       : Wi-Fi / TCP
 
 <br>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF4500,30:FF8C00,60:FFA500,100:FF6347&height=130&section=footer&animation=fadeIn" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF4500,30:FF8C00,60:FFA500,100:FF6347&height=130&section=footer" />
 
 </div>
